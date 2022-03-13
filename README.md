@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# <strong>_Hello Wordle!_</strong> </>
 
-## Available Scripts
+## :rocket: About
+<p>This project is a clone of the popular game Wordle made using <strong>React.js</strong> with studying purposes!</p>
 
-In the project directory, you can run:
+<div align="center">
+  <a href="https://https://github.com/lucaszambam/hello-wordle">
+    <img src="https://user-images.githubusercontent.com/86389153/158066274-f819fb42-a0ab-4e0c-9597-178c524a9ee4.png" alt="Logo" width="700" height="500">
+  </a>
+</div>
 
-### `yarn start`
+> This is a clone project of the popular word guessing game [Wordle](https://www.nytimes.com/games/wordle/index.html) 
+Made using JavaScript Library [React](https://github.com/facebook/react).
+ This repository is open sourced for learning purposes only.
+ The original creator(s) of Wordle own all applicable rights to the game itself.
+ 
+ ---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✍️ Authors and Credits
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **Jayaramachandran Augustin** - *Initial work* - [WordleClone](https://github.com/JayaramachandranAugustin/WordleClone)
+* **Aleksandar Popović** - *localStorage DarkMode* - [DarkMode](https://github.com/alekspopovic/DarkMode) 
+> A special thanks to [Jayaramachandran](https://github.com/JayaramachandranAugustin) and [Aleksandar](https://github.com/alekspopovic) for their open-sourced codes that helped me built this project. Don't forget to check their repositories and leave a star!
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ▶️ How to Play
+ 
+* You get 6 tries to guess a 5-letter target word. After each guess, the letters light up in various colors as clues. Green means a letter is correct in this spot; yellow means a letter is elsewhere in the target word; gray means a letter is not in the target word at all.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📚 Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repo
+   ```bash
+   git clone https://github.com/lucaszambam/hello-wordle.git
+   ```
+2. Install Yarn packages 
+   ```bash
+   yarn install
+   ```
+3. Run project
+   ```bash
+   yarn start
+   ```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p><strong>by Lucas Zambam :wave: <a href="https://www.linkedin.com/in/lucas-zambam-0a90ab1b9/">Get in touch!</strong></a></p>
