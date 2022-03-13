@@ -1,0 +1,361 @@
+:root {
+  --dark: #141419;
+  --darkMenu: #0b0b0e;
+  --light: white;
+}
+
+.app-container { 
+  overflow: hidden;
+}
+
+.container{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+.message{
+  position: absolute;
+  top:10%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  background: #787c7e;
+  font-size: 16px;
+}
+
+.title{
+  letter-spacing: 0.2rem;
+  font-size: 36px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.cube-row{
+  display: flex;
+  flex-direction: row;
+  gap:5px;
+}
+
+.cube{
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+  margin-bottom: 60px;
+}
+.letter{
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #d3d6da;
+  border-radius: 10%; 
+}
+
+.reset-board{
+  padding: 5px 5px 5px 20px;
+  background: none;
+  color: #6aaa64;
+  font-size: 38px;
+}
+
+.top{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding:10px 20px;
+  border-bottom: 1px solid grey;
+  margin-bottom: 60px
+}
+
+.cube-row.error {
+  -webkit-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+#menuToggle {
+  display: block;
+  position: relative;
+  width: 50px;
+  top: 50px;
+  left: 50px; 
+  z-index: 1; 
+  -webkit-user-select: none;
+  user-select: none;
+}
+ 
+#menuToggle a {
+  text-decoration: none;
+  color: #232323; 
+  transition: color 0.3s ease;
+}
+ 
+#menuToggle a:hover {
+  color: tomato;
+}
+ 
+ 
+#menuInput {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer; 
+  z-index: 2;
+  -webkit-touch-callout: none;
+ }
+ 
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+ 
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+ 
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+ 
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+}
+ 
+#menuToggle input:checked ~ span:nth-last-child(3) {
+   opacity: 0;
+   transform: rotate(0deg) scale(0.2, 0.2);
+}
+ 
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu.light { 
+  --background-color-menu: var(--light);
+  --text-color: black;
+}
+
+#menu.dark { 
+  --background-color-menu: var(--darkMenu);
+  --text-color: white;
+}
+
+#menu {
+  position: absolute;
+  width: 400px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  border-bottom-right-radius: 50px 50px;
+  background: var(--background-color-menu);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.menuSpan.light {
+  --background-color-menu-options: black;
+}
+
+.menuSpan.dark {
+  --background-color-menu-options: white;
+}
+
+.menuSpan { 
+  background: var(--background-color-menu-options) !important;
+  transition: all 0.3s ease;
+}
+ 
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+  border-bottom: 1px solid grey;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+ 
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+}
+
+.textButton li { 
+  border-bottom: 0 !important;
+}
+
+.correct{
+  background: #6aaa64;
+  color: #fff;
+
+}
+
+.present{
+  background: #c9b458;
+  color: #fff;
+}
+
+.absent{
+  background: #787c7e;
+  color: #fff;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
+  #root {
+    width: 100%;
+    height: 100%;
+  }
+
+  .container{
+    margin: 0;
+  }
+
+  .top{
+    padding: 15px 10px;
+    margin-bottom: 40px;
+    margin-top: 15px;
+  }
+
+  .letter{
+    width: 55px;
+  }
+
+  .cube {
+    margin-bottom: 40px;
+  }
+
+  #menuToggle { 
+    left: 15px;
+    top: 20px;
+  }
+
+  #menu {
+    width: 335px;
+    height: 2000px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #menu li {
+    margin-left: 25px;
+  }
+
+  .buttonContainer {
+    margin-left: 25px;
+  }
+
+  .textButton { 
+    margin-left: -25px;
+  }
+
+  .title { 
+    font-size: 30px;
+  }
+
+  button { 
+    padding: 22px 11px;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+

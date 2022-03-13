@@ -1,15 +1,8 @@
-/**
- * Wordle Clone - TODO:
-  - Add darkmode option;
-  - Add animation to word input;
-  - Choose new name;
-  - Choose new word-list theme (TBD).
- */
-
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import Keyboard from './Components/Keyboard';
-import { wordList } from './Constants/data';
+import React, { useEffect, useState } from "react";
+import Keyboard from "./Components/Keyboard";
+import ThemeMode from "./Components/ThemeMode";
+import { wordList } from "./Constants/data";
+import "./Styles/App.css";
 
 const App = () => {
   const [boardData, setBoardData] = useState(JSON.parse(localStorage.getItem("board-data")));
@@ -17,19 +10,18 @@ const App = () => {
   const [error, setError] = useState(false);
   const [charArray, setCharArray] = useState([]);
 
-
   const resetBoard = () => {
-    var alphabetIndex = Math.floor(Math.random() * 26);
-    var wordIndex = Math.floor(Math.random() * wordList[String.fromCharCode(97 + alphabetIndex)].length);
-    let newBoardData = {
-      ...boardData, "solution": wordList[String.fromCharCode(97 + alphabetIndex)][wordIndex],
-      "rowIndex": 0,
-      "boardWords": [],
-      "boardRowStatus": [],
-      "presentCharArray": [],
-      "absentCharArray": [],
-      "correctCharArray": [],
-      "status": "IN_PROGRESS"
+    const alphabetIndex = Math.floor(Math.random() * 26);
+    const wordIndex = Math.floor(Math.random() * wordList[String.fromCharCode(97 + alphabetIndex)].length);
+    const newBoardData = {
+      ...boardData, solution: wordList[String.fromCharCode(97 + alphabetIndex)][wordIndex],
+      rowIndex: 0,
+      boardWords: [],
+      boardRowStatus: [],
+      presentCharArray: [],
+      absentCharArray: [],
+      correctCharArray: [],
+      status: "IN_PROGRESS"
     };
     setBoardData(newBoardData);
     localStorage.setItem("board-data", JSON.stringify(newBoardData));
@@ -37,17 +29,17 @@ const App = () => {
 
   useEffect(() => {
     if (!boardData || !boardData.solution) {
-      var alphabetIndex = Math.floor(Math.random() * 26);
-      var wordIndex = Math.floor(Math.random() * wordList[String.fromCharCode(97 + alphabetIndex)].length);
-      let newBoardData = {
-        ...boardData, "solution": wordList[String.fromCharCode(97 + alphabetIndex)][wordIndex],
-        "rowIndex": 0,
-        "boardWords": [],
-        "boardRowStatus": [],
-        "presentCharArray": [],
-        "absentCharArray": [],
-        "correctCharArray": [],
-        "status": "IN_PROGRESS"
+      const alphabetIndex = Math.floor(Math.random() * 26);
+      const wordIndex = Math.floor(Math.random() * wordList[String.fromCharCode(97 + alphabetIndex)].length);
+      const newBoardData = {
+        ...boardData, solution: wordList[String.fromCharCode(97 + alphabetIndex)][wordIndex],
+        rowIndex: 0,
+        boardWords: [],
+        boardRowStatus: [],
+        presentCharArray: [],
+        absentCharArray: [],
+        correctCharArray: [],
+        status: "IN_PROGRESS"
       };
       setBoardData(newBoardData);
       localStorage.setItem("board-data", JSON.stringify(newBoardData));
@@ -80,7 +72,7 @@ const App = () => {
     let matchCount = 0;
     let status = boardData.status;
 
-    for (var index = 0; index < word.length; index++) {
+    for (let index = 0; index < word.length; index++) {
       if (solution.charAt(index) === word.charAt(index)) {
         matchCount++;
         rowStatus.push("correct");
@@ -107,13 +99,13 @@ const App = () => {
     boardWords[rowIndex] = word;
     let newBoardData = {
       ...boardData,
-      "boardWords": boardWords,
-      "boardRowStatus": boardRowStatus,
-      "rowIndex": rowIndex + 1,
-      "status": status,
-      "presentCharArray": presentCharArray,
-      "absentCharArray": absentCharArray,
-      "correctCharArray": correctCharArray
+      boardWords: boardWords,
+      boardRowStatus: boardRowStatus,
+      rowIndex: rowIndex + 1,
+      status: status,
+      presentCharArray: presentCharArray,
+      absentCharArray: absentCharArray,
+      correctCharArray: correctCharArray
     };
     setBoardData(newBoardData);
     localStorage.setItem("board-data", JSON.stringify(newBoardData));
@@ -159,30 +151,50 @@ const App = () => {
   }
 
   return (
-    <div className='container'>
-      <div className='top'>
-        <div className='title'>ESCOLHER NOME WORDLE CLONE</div>
-        <button className="reset-board" onClick={resetBoard}>{"\u27f3"}</button>
-      </div>
-      {message && <div className='message'>
-        {message}
-      </div>}
-      <div className='cube'>
-        {[0, 1, 2, 3, 4, 5].map((row, rowIndex) => (
-          <div className={`cube-row ${boardData && row === boardData.rowIndex && error && "error"}`} key={rowIndex}>
-            {
-              [0, 1, 2, 3, 4].map((column, letterIndex) => (
-                <div key={letterIndex} className={`letter ${boardData && boardData.boardRowStatus[row] ? boardData.boardRowStatus[row][column] : ""}`}>
-                  {boardData && boardData.boardWords[row] && boardData.boardWords[row][column]}
-                </div>
-              ))
-            }
-          </div>
-        ))}
-      </div>
-      <div className='bottom'>
-        <Keyboard boardData={boardData}
-          handleKeyPress={handleKeyPress} />
+
+    <div className="app-container">
+      <nav role="navigation">
+        <div id="menuToggle">
+          <input id="menuInput" type="checkbox" />
+          <span className="menuSpan"></span>
+          <span className="menuSpan"></span>
+          <span className="menuSpan"></span>
+          <ul id="menu" name="menuInside">
+            <div className="buttonContainer">
+              <a className="textButton"><li>Dark Theme</li></a>
+              <ThemeMode />
+            </div>
+            <a href="#"><li>Home</li></a>
+            <a href="https://github.com/lucaszambam" target="_blank"><li>GitHub</li></a>
+            <a href="https://www.linkedin.com/in/lucas-zambam-0a90ab1b9/" target="_blank"><li>Linkedin</li></a>
+          </ul>
+        </div>
+      </nav>
+      <div className="container">
+        <div className="top">
+          <div className="title">Hello Wordle!</div>
+          <button className="reset-board" onClick={resetBoard}>{"\u27f3"}</button>
+        </div>
+        {message && <div className="message">
+          {message}
+        </div>}
+        <div className="cube">
+          {[0, 1, 2, 3, 4, 5].map((row, rowIndex) => (
+            <div className={`cube-row ${boardData && row === boardData.rowIndex && error && "error"}`} key={rowIndex}>
+              {
+                [0, 1, 2, 3, 4].map((column, letterIndex) => (
+                  <div key={letterIndex} className={`letter ${boardData && boardData.boardRowStatus[row] ? boardData.boardRowStatus[row][column] : ""}`}>
+                    {boardData && boardData.boardWords[row] && boardData.boardWords[row][column]}
+                  </div>
+                ))
+              }
+            </div>
+          ))}
+        </div>
+        <div className="bottom">
+          <Keyboard boardData={boardData}
+            handleKeyPress={handleKeyPress} />
+        </div>
       </div>
     </div>
   );

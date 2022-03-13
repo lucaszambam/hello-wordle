@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+:root {
+  --dark: #141419;
+  --light: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Code Pro', monospace;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.45s;
+  user-select: none;
+}
+
+body.light {
+  --background-color: var(--light);
+  --text-color: black;
+  
+}
+
+body.dark {
+  --background-color: var(--dark);
+  --text-color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
