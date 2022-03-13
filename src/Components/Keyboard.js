@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { keys } from '../Constants/constants';
-import '../Styles/keyboard.css';
+import '../Styles/Keyboard.css';
 
 
 const Keyboard = ({ boardData, handleKeyPress }) => {
