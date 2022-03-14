@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hello-wordle/static/css/main.64f0e542.css",
+    "main.js": "/hello-wordle/static/js/main.5ab6731d.js",
+    "index.html": "/hello-wordle/index.html",
+    "main.64f0e542.css.map": "/hello-wordle/static/css/main.64f0e542.css.map",
+    "main.5ab6731d.js.map": "/hello-wordle/static/js/main.5ab6731d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.64f0e542.css",
+    "static/js/main.5ab6731d.js"
+  ]
+}
