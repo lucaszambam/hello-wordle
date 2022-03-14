@@ -172,7 +172,7 @@ const App = () => {
       </nav>
       <div className="container">
         <div className="top">
-          <div className="title">Hello Wordle!</div>
+          <div className="title">Hello Wordle</div>
           <button className="reset-board" onClick={resetBoard}>{"\u27f3"}</button>
         </div>
         {message && <div className="message">
